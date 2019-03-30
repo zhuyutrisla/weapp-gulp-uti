@@ -1,4 +1,6 @@
 // index.js
+const { api } = require('../../util/api')
+
 Page({
     data: {
       text: 'This is page data.'
@@ -30,23 +32,4 @@ Page({
     onPageScroll() {
       // Do something when page scroll
     },
-    onResize() {
-      // Do something when page resize
-    },
-    onTabItemTap(item) {
-      console.log(item.index)
-      console.log(item.pagePath)
-      console.log(item.text)
-    },
-    // Event handler.
-    viewTap() {
-      this.setData({
-        text: 'Set some data for updating view.'
-      }, function () {
-        // this is setData callback
-      })
-    },
-    customData: {
-      hi: 'MINA'
-    }
   })
