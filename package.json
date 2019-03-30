@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "gulp --gulpfile build/build-dev.js",
     "build": "rm -rf dist/ && gulp --gulpfile build/build-prod.js",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "pages" : "node generatePages $*"
   },
   "repository": {
     "type": "git",
@@ -21,10 +22,11 @@
     "eslint": "^3.19.0",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.9.3",
+    "gulp-imagemin": "^5.0.3",
     "gulp-less": "^4.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.8",
     "less": "^2.7.3",
-    "gulp-imagemin": "^5.0.3"
+    "moment": "^2.24.0"
   }
 }
