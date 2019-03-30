@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "gulp --gulpfile build/build-dev.js",
-    "build": "rm -rf dist/ && gulp --gulpfile build/build-prod.js",
+    "build": "gulp --gulpfile build/build-prod.js",
     "prepare": "npm run build",
     "pages" : "node generatePages $*",
     "component": "node generateComponents $*"
