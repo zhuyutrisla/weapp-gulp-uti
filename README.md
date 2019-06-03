@@ -13,6 +13,11 @@ npm run build
 ### 生成page文件
 ```
 npm run pages 文件名
+
+npm run pages 文件名  标题名
+
+如  npm run pages test 测试标题
+将会生成test 的page 文件 同时 json文件里的navigationBarTitleText 为测试标题
 ```
 
 ### 生成component

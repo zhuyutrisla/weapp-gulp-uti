@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "dev": "gulp --gulpfile build/build-dev.js",
-    "build": "rm -rf dist/ && gulp --gulpfile build/build-prod.js",
+    "build": "rm -rf ./dist/static/ && gulp --gulpfile build/build-prod.js",
     "prepare": "npm run build",
-    "pages" : "node generatePages $*",
+    "pages": "node generatePages $*",
     "component": "node generateComponents $*"
   },
   "repository": {

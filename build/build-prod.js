@@ -6,6 +6,7 @@ const imagemin = require('gulp-imagemin');
 
 const imgFiles = [
     `../src/static/*.{png,jpg,gif,ico}`,
+    `../src/static/**/*.{png,jpg,gif,ico}`,
   ];
 gulp.task('compile-image', ()=> {
     return gulp
@@ -13,6 +14,12 @@ gulp.task('compile-image', ()=> {
     .pipe(imagemin())
     .pipe(gulp.dest('../dist/static'));
 });
+
+gulp.task('copy-npm', () => {
+    return gulp.src(['../src/node_modules'])
+        .pipe(gulp.dest('../dist/'));
+});
+
 gulp.task('compile-css', () => {
     return gulp.src(['../src/**/*.less', '!../src/**/_*.less'])
         .pipe(less())

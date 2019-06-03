@@ -6,12 +6,12 @@
 let fs = require('fs');
 let basepath = './templates/index';
 let srcPath = './src/pages/'
-let cptName = process.argv.splice(2)[0];
-if (!cptName) {
+let cptName = process.argv.splice(2);
+if (!cptName.length) {
   console.log('请传入参数')
   return 
 }
-let path = cptName.split('/');
+let path = cptName[0].split('/');
 let name = path[path.length - 1];
 let writes = [`index.js`, `index.wxml`, `index.less`, `index.json`];
 let reads = [`${basepath}/index.js`, `${basepath}/index.wxml`, `${basepath}/index.less`, `${basepath}/index.json`];
@@ -43,7 +43,13 @@ let readFile = function () {
   return new Promise((res) => {
     for (let a of reads) {
       let text = fs.readFileSync(a).toString();
-      file.push(text)
+      if (a === './templates/index/index.json' && cptName[1]) {
+        let temp = JSON.parse(text)
+        temp.navigationBarTitleText = cptName[1]
+        file.push(JSON.stringify(temp))
+      } else {
+        file.push(text)
+      }
     }
     res(file);
   })

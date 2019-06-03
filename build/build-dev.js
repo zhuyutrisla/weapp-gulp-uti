@@ -7,6 +7,7 @@ const imagemin = require('gulp-imagemin');
 
 const imgFiles = [
     `../src/static/*.{png,jpg,gif,ico}`,
+    `../src/static/**/*.{png,jpg,gif,ico}`,
   ];
 gulp.task('compile-image', ()=> {
     return gulp
@@ -22,6 +23,11 @@ gulp.task('compile-css', () => {
         .pipe(rename((path) => {
             path.extname = '.wxss';
         }))
+        .pipe(gulp.dest('../dist/'));
+});
+
+gulp.task('copy-npm', () => {
+    return gulp.src(['../src/node_modules'])
         .pipe(gulp.dest('../dist/'));
 });
 
