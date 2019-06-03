@@ -4,8 +4,8 @@
   "description": "基于gulp、less的原生小程序开发工作流",
   "main": "app.js",
   "scripts": {
-    "dev": "gulp dev --gulpfile build/build-config.js",
-    "build": "rm -rf ./dist/static/ && gulp build --gulpfile build/build-config.js",
+    "dev": "gulp dev",
+    "build": "rm -rf ./dist/static/ && gulp build",
     "prepare": "npm run build",
     "pages": "node generatePages $*",
     "component": "node generateComponents $*"
@@ -20,17 +20,15 @@
     "dist"
   ],
   "devDependencies": {
+    "gulp": "^4.0.2",
     "eslint": "^3.19.0",
-    "gulp": "^3.9.1",
     "gulp-clean-css": "^3.9.3",
     "gulp-imagemin": "^5.0.3",
     "gulp-less": "^4.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.8",
     "less": "^2.7.3",
-    "moment": "^2.24.0"
-  },
-  "dependencies": {
+    "moment": "^2.24.0",
     "gulp-postcss": "^8.0.0",
     "postcss-px2rpx": "0.0.4"
   }
