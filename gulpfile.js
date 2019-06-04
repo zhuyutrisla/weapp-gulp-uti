@@ -6,6 +6,10 @@ const pxtorpx = require('postcss-px2rpx');
 const cssmin = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const imagemin = require('gulp-imagemin');
+const ts = require('gulp-typescript');
+const tsProject = ts.createProject('tsconfig.json');
+const tsPath = ['./src/**/*.ts']
+
 
 function gulpSrc (paths) {
 	let flag
@@ -72,14 +76,24 @@ gulp.task('compile-wxml', () => {
 		.pipe(gulp.dest('./dist/'));
 });
 
+
+gulp.task("ts-compile", function() {
+  return gulp
+    .src(tsPath)
+    .pipe(tsProject())
+    .pipe(gulp.dest("./dist/"));
+});
+
+
 gulp.task('auto', () => {
 	gulp.watch('./src/**/*.less', gulp.parallel('compile-css'));
 	gulp.watch('./src/**/*.js', gulp.parallel('compile-js'));
+	gulp.watch('./src/**/*.ts', gulp.parallel('ts-compile'));
 	gulp.watch('./src/**/*.json', gulp.parallel('compile-json'));
 	gulp.watch('./src/**/*.wxml', gulp.parallel('compile-wxml'));
 	gulp.watch('./src/static/*.{png,jpg,gif,ico}', gulp.parallel('compile-image'));
 });
 
-gulp.task('dev', gulp.parallel('compile-css', 'compile-js', 'compile-json', 'compile-wxml', 'compile-image', 'auto'));
+gulp.task('dev', gulp.parallel('compile-css', 'compile-js', 'compile-json', 'compile-wxml', 'compile-image', 'ts-compile', 'auto'));
 
-gulp.task('build', gulp.parallel('compile-css', 'compile-js', 'compile-json','compile-wxml', 'compile-image'));
+gulp.task('build', gulp.parallel('compile-css', 'compile-js', 'compile-json','compile-wxml', 'compile-image', 'ts-compile'));
