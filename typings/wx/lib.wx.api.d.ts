@@ -1,13 +1,18 @@
 /*! *****************************************************************************
 Copyright (c) 2018 Tencent, Inc. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ***************************************************************************** */
 
+/* tslint:disable: max-line-length ban-types jsdoc-format interface-name */
 declare namespace wx {
   interface AccessFailCallbackResult {
     /** 错误信息
@@ -182,17 +187,17 @@ declare namespace wx {
      * - 'utf8': ;
      * - 'latin1': ; */
     encoding?:
-      | 'ascii'
-      | 'base64'
-      | 'binary'
-      | 'hex'
-      | 'ucs2'
-      | 'ucs-2'
-      | 'utf16le'
-      | 'utf-16le'
-      | 'utf-8'
-      | 'utf8'
-      | 'latin1';
+    | 'ascii'
+    | 'base64'
+    | 'binary'
+    | 'hex'
+    | 'ucs2'
+    | 'ucs-2'
+    | 'utf16le'
+    | 'utf-16le'
+    | 'utf-8'
+    | 'utf8'
+    | 'latin1';
     /** 接口调用失败的回调函数 */
     fail?: AppendFileFailCallback;
     /** 接口调用成功的回调函数 */
@@ -221,7 +226,7 @@ declare namespace wx {
   }
   interface AuthorizeOption {
     /** 需要获取权限的 scope，详见 [scope 列表] */
-    scope: string;
+    scope: keyof AuthSetting;
     /** 接口调用结束的回调函数（调用成功、失败都会执行） */
     complete?: AuthorizeCompleteCallback;
     /** 接口调用失败的回调函数 */
@@ -641,7 +646,7 @@ backgroundAudioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb
     /** 图片的本地临时文件列表
      *
      * 最低基础库： `1.2.0` */
-    tempFiles: ImageFile;
+    tempFiles: ImageFile[];
   }
   interface ChooseInvoiceOption {
     /** 接口调用结束的回调函数（调用成功、失败都会执行） */
@@ -727,7 +732,7 @@ backgroundAudioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb
   }
   interface ChooseMessageFileSuccessCallbackResult {
     /** 返回选择的文件的本地临时文件对象数组 */
-    tempFiles: ChooseFile;
+    tempFiles: Array<ChooseFile>;
   }
   interface ChooseVideoOption {
     /** 默认拉起的是前置或者后置摄像头。部分 Android 手机下由于系统 ROM 不支持无法生效
@@ -817,6 +822,8 @@ backgroundAudioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb
     /** 接口调用成功的回调函数 */
     success?: CloseSocketSuccessCallback;
   }
+  /** 16进制颜色 或 `rgba(0, 0, 0, 0.1)` */
+  type HexColor = string & { hexish?: any }
   /** 颜色。可以用以下几种方式来表示 canvas 中使用的颜色：
    *
    * - RGB 颜色： 如 `'rgb(255, 0, 0)'`
@@ -977,7 +984,157 @@ backgroundAudioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb
    * | WhiteSmoke           | #F5F5F5 |
    * | Yellow               | #FFFF00 |
    * | YellowGreen          | #9ACD32 | */
-  interface Color {}
+  type Color =
+    | HexColor
+    | 'AliceBlue'
+    | 'AntiqueWhite'
+    | 'Aqua'
+    | 'Aquamarine'
+    | 'Azure'
+    | 'Beige'
+    | 'Bisque'
+    | 'Black'
+    | 'BlanchedAlmond'
+    | 'Blue'
+    | 'BlueViolet'
+    | 'Brown'
+    | 'BurlyWood'
+    | 'CadetBlue'
+    | 'Chartreuse'
+    | 'Chocolate'
+    | 'Coral'
+    | 'CornflowerBlue'
+    | 'Cornsilk'
+    | 'Crimson'
+    | 'Cyan'
+    | 'DarkBlue'
+    | 'DarkCyan'
+    | 'DarkGoldenRod'
+    | 'DarkGray'
+    | 'DarkGrey'
+    | 'DarkGreen'
+    | 'DarkKhaki'
+    | 'DarkMagenta'
+    | 'DarkOliveGreen'
+    | 'DarkOrange'
+    | 'DarkOrchid'
+    | 'DarkRed'
+    | 'DarkSalmon'
+    | 'DarkSeaGreen'
+    | 'DarkSlateBlue'
+    | 'DarkSlateGray'
+    | 'DarkSlateGrey'
+    | 'DarkTurquoise'
+    | 'DarkViolet'
+    | 'DeepPink'
+    | 'DeepSkyBlue'
+    | 'DimGray'
+    | 'DimGrey'
+    | 'DodgerBlue'
+    | 'FireBrick'
+    | 'FloralWhite'
+    | 'ForestGreen'
+    | 'Fuchsia'
+    | 'Gainsboro'
+    | 'GhostWhite'
+    | 'Gold'
+    | 'GoldenRod'
+    | 'Gray'
+    | 'Grey'
+    | 'Green'
+    | 'GreenYellow'
+    | 'HoneyDew'
+    | 'HotPink'
+    | 'IndianRed'
+    | 'Indigo'
+    | 'Ivory'
+    | 'Khaki'
+    | 'Lavender'
+    | 'LavenderBlush'
+    | 'LawnGreen'
+    | 'LemonChiffon'
+    | 'LightBlue'
+    | 'LightCoral'
+    | 'LightCyan'
+    | 'LightGoldenRodYellow'
+    | 'LightGray'
+    | 'LightGrey'
+    | 'LightGreen'
+    | 'LightPink'
+    | 'LightSalmon'
+    | 'LightSeaGreen'
+    | 'LightSkyBlue'
+    | 'LightSlateGray'
+    | 'LightSlateGrey'
+    | 'LightSteelBlue'
+    | 'LightYellow'
+    | 'Lime'
+    | 'LimeGreen'
+    | 'Linen'
+    | 'Magenta'
+    | 'Maroon'
+    | 'MediumAquaMarine'
+    | 'MediumBlue'
+    | 'MediumOrchid'
+    | 'MediumPurple'
+    | 'MediumSeaGreen'
+    | 'MediumSlateBlue'
+    | 'MediumSpringGreen'
+    | 'MediumTurquoise'
+    | 'MediumVioletRed'
+    | 'MidnightBlue'
+    | 'MintCream'
+    | 'MistyRose'
+    | 'Moccasin'
+    | 'NavajoWhite'
+    | 'Navy'
+    | 'OldLace'
+    | 'Olive'
+    | 'OliveDrab'
+    | 'Orange'
+    | 'OrangeRed'
+    | 'Orchid'
+    | 'PaleGoldenRod'
+    | 'PaleGreen'
+    | 'PaleTurquoise'
+    | 'PaleVioletRed'
+    | 'PapayaWhip'
+    | 'PeachPuff'
+    | 'Peru'
+    | 'Pink'
+    | 'Plum'
+    | 'PowderBlue'
+    | 'Purple'
+    | 'RebeccaPurple'
+    | 'Red'
+    | 'RosyBrown'
+    | 'RoyalBlue'
+    | 'SaddleBrown'
+    | 'Salmon'
+    | 'SandyBrown'
+    | 'SeaGreen'
+    | 'SeaShell'
+    | 'Sienna'
+    | 'Silver'
+    | 'SkyBlue'
+    | 'SlateBlue'
+    | 'SlateGray'
+    | 'SlateGrey'
+    | 'Snow'
+    | 'SpringGreen'
+    | 'SteelBlue'
+    | 'Tan'
+    | 'Teal'
+    | 'Thistle'
+    | 'Tomato'
+    | 'Turquoise'
+    | 'Violet'
+    | 'Wheat'
+    | 'White'
+    | 'WhiteSmoke'
+    | 'Yellow'
+    | 'YellowGreen';
+
   interface CompressImageOption {
     /** 图片路径，图片的路径，可以是相对路径、临时文件路径、存储文件路径 */
     src: string;
@@ -1068,13 +1225,13 @@ backgroundAudioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb
      * - 'step-start': 动画第一帧就跳至结束状态直到结束;
      * - 'step-end': 动画一直保持开始状态，最后一帧跳到结束状态; */
     timingFunction?:
-      | 'linear'
-      | 'ease'
-      | 'ease-in'
-      | 'ease-in-out'
-      | 'ease-out'
-      | 'step-start'
-      | 'step-end';
+    | 'linear'
+    | 'ease'
+    | 'ease-in'
+    | 'ease-in-out'
+    | 'ease-out'
+    | 'step-start'
+    | 'step-end';
     transformOrigin?: string;
   }
   interface CreateBLEConnectionOption {
@@ -1525,14 +1682,14 @@ backgroundAudioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb
      *
      * 最低基础库： `1.9.90` */
     orientation:
-      | 'up'
-      | 'up-mirrored'
-      | 'down'
-      | 'down-mirrored'
-      | 'left-mirrored'
-      | 'right'
-      | 'right-mirrored'
-      | 'left';
+    | 'up'
+    | 'up-mirrored'
+    | 'down'
+    | 'down-mirrored'
+    | 'left-mirrored'
+    | 'right'
+    | 'right-mirrored'
+    | 'left';
     /** 图片的本地路径 */
     path: string;
     /** 图片格式
@@ -2576,6 +2733,14 @@ innerAudioContext.onError((res) => {
   interface OnStopCallbackResult {
     /** 录音文件的临时路径 */
     tempFilePath: string;
+    /**
+     * 录音文件大小，单位：Byte
+     */
+    fileSize: number;
+    /**
+     * 	录音总时长，单位：ms
+     */
+    duration: number;
   }
   interface OnWifiConnectedCallbackResult {
     /** [WifiInfo]
@@ -2830,17 +2995,17 @@ innerAudioContext.onError((res) => {
      * - 'utf8': ;
      * - 'latin1': ; */
     encoding?:
-      | 'ascii'
-      | 'base64'
-      | 'binary'
-      | 'hex'
-      | 'ucs2'
-      | 'ucs-2'
-      | 'utf16le'
-      | 'utf-16le'
-      | 'utf-8'
-      | 'utf8'
-      | 'latin1';
+    | 'ascii'
+    | 'base64'
+    | 'binary'
+    | 'hex'
+    | 'ucs2'
+    | 'ucs-2'
+    | 'utf16le'
+    | 'utf-16le'
+    | 'utf-8'
+    | 'utf8'
+    | 'latin1';
     /** 接口调用失败的回调函数 */
     fail?: ReadFileFailCallback;
     /** 接口调用成功的回调函数 */
@@ -2891,13 +3056,13 @@ innerAudioContext.onError((res) => {
      *
      * 最低基础库： `2.1.0` */
     audioSource?:
-      | 'auto'
-      | 'buildInMic'
-      | 'headsetMic'
-      | 'mic'
-      | 'camcorder'
-      | 'voice_communication'
-      | 'voice_recognition';
+    | 'auto'
+    | 'buildInMic'
+    | 'headsetMic'
+    | 'mic'
+    | 'camcorder'
+    | 'voice_communication'
+    | 'voice_recognition';
     /** 录音的时长，单位 ms，最大值 600000（10 分钟） */
     duration?: number;
     /** 编码码率，有效值见下表格 */
@@ -2929,15 +3094,15 @@ innerAudioContext.onError((res) => {
      * - 44100: 44100 采样率;
      * - 48000: 48000 采样率; */
     sampleRate?:
-      | 8000
-      | 11025
-      | 12000
-      | 16000
-      | 22050
-      | 24000
-      | 32000
-      | 44100
-      | 48000;
+    | 8000
+    | 11025
+    | 12000
+    | 16000
+    | 22050
+    | 24000
+    | 32000
+    | 44100
+    | 48000;
   }
   /** 菜单按钮的布局位置信息 */
   interface Rect {
@@ -3075,14 +3240,14 @@ innerAudioContext.onError((res) => {
      * - 'TRACE': HTTP 请求 TRACE;
      * - 'CONNECT': HTTP 请求 CONNECT; */
     method?:
-      | 'OPTIONS'
-      | 'GET'
-      | 'HEAD'
-      | 'POST'
-      | 'PUT'
-      | 'DELETE'
-      | 'TRACE'
-      | 'CONNECT';
+    | 'OPTIONS'
+    | 'GET'
+    | 'HEAD'
+    | 'POST'
+    | 'PUT'
+    | 'DELETE'
+    | 'TRACE'
+    | 'CONNECT';
     /** 响应的数据类型
      *
      * 可选值：
@@ -3259,25 +3424,25 @@ innerAudioContext.onError((res) => {
      * - 'WX_CODE': 二维码;
      * - 'CODE_25': 一维码; */
     scanType:
-      | 'QR_CODE'
-      | 'AZTEC'
-      | 'CODABAR'
-      | 'CODE_39'
-      | 'CODE_93'
-      | 'CODE_128'
-      | 'DATA_MATRIX'
-      | 'EAN_8'
-      | 'EAN_13'
-      | 'ITF'
-      | 'MAXICODE'
-      | 'PDF_417'
-      | 'RSS_14'
-      | 'RSS_EXPANDED'
-      | 'UPC_A'
-      | 'UPC_E'
-      | 'UPC_EAN_EXTENSION'
-      | 'WX_CODE'
-      | 'CODE_25';
+    | 'QR_CODE'
+    | 'AZTEC'
+    | 'CODABAR'
+    | 'CODE_39'
+    | 'CODE_93'
+    | 'CODE_128'
+    | 'DATA_MATRIX'
+    | 'EAN_8'
+    | 'EAN_13'
+    | 'ITF'
+    | 'MAXICODE'
+    | 'PDF_417'
+    | 'RSS_14'
+    | 'RSS_EXPANDED'
+    | 'UPC_A'
+    | 'UPC_E'
+    | 'UPC_EAN_EXTENSION'
+    | 'WX_CODE'
+    | 'CODE_25';
   }
   interface ScrollOffsetCallbackResult {
     /** 节点的 dataset */
@@ -3883,13 +4048,13 @@ innerAudioContext.onError((res) => {
      * - 'step-start': 动画第一帧就跳至结束状态直到结束;
      * - 'step-end': 动画一直保持开始状态，最后一帧跳到结束状态; */
     timingFunction?:
-      | 'linear'
-      | 'ease'
-      | 'ease-in'
-      | 'ease-in-out'
-      | 'ease-out'
-      | 'step-start'
-      | 'step-end';
+    | 'linear'
+    | 'ease'
+    | 'ease-in'
+    | 'ease-in-out'
+    | 'ease-out'
+    | 'step-start'
+    | 'step-end';
     transformOrigin?: string;
   }
   interface StopAccelerometerOption {
@@ -4321,17 +4486,17 @@ innerAudioContext.onError((res) => {
      * - 'utf8': ;
      * - 'latin1': ; */
     encoding?:
-      | 'ascii'
-      | 'base64'
-      | 'binary'
-      | 'hex'
-      | 'ucs2'
-      | 'ucs-2'
-      | 'utf16le'
-      | 'utf-16le'
-      | 'utf-8'
-      | 'utf8'
-      | 'latin1';
+    | 'ascii'
+    | 'base64'
+    | 'binary'
+    | 'hex'
+    | 'ucs2'
+    | 'ucs-2'
+    | 'utf16le'
+    | 'utf-16le'
+    | 'utf-8'
+    | 'utf8'
+    | 'latin1';
     /** 接口调用失败的回调函数 */
     fail?: WriteFileFailCallback;
     /** 接口调用成功的回调函数 */
@@ -4416,8 +4581,9 @@ innerAudioContext.onError((res) => {
     /** [Array.<Object> Animation.export()](Animation.export.md)
      *
      * 导出动画队列。**export 方法每次调用后会清掉之前的动画操作。** */
-    export(): Array<Object>;
-    /** [[Animation] Animation.backgroundColor(string value)](Animation.backgroundColor.md)
+    export(): Array<object>;
+    /** [[Animation](https://developers.weixin.qq.com/miniprogram/dev/api/ui/animation/Animation.html) Animation.backgroundColor(string value)](Animation.backgroundColor.md)
+
      *
      * 设置背景色 */
     backgroundColor(
@@ -5146,6 +5312,18 @@ wx.chooseImage({
 ```
 * ![] */
     drawImage(
+      imageResource: string,
+      sx: number,
+      sy: number
+    ): void;
+    drawImage(
+      imageResource: string,
+      sx: number,
+      sy: number,
+      sWidth: number,
+      sHeight: number,
+    ): void;
+    drawImage(
       /** 所要绘制的图片资源 */
       imageResource: string,
       /** 源图像的矩形选择框的左上角 x 坐标 */
@@ -5511,7 +5689,7 @@ ctx.draw()
       /** [Color]
        *
        * 填充的颜色，默认颜色为 black。 */
-      color: Color,
+      color: Color | wx.CanvasGradient,
     ): void;
     /** [CanvasContext.setFontSize(number fontSize)](CanvasContext.setFontSize.md)
 * 
@@ -5815,7 +5993,7 @@ ctx.draw()
       /** [Color]
        *
        * 描边的颜色，默认颜色为 black。 */
-      color: Color,
+      color: Color | wx.CanvasGradient,
     ): void;
     /** [CanvasContext.setTextAlign(string align)](CanvasContext.setTextAlign.md)
 * 
@@ -6142,7 +6320,7 @@ ctx.draw()
       /** [Color]
        *
        * 渐变点的颜色。 */
-      color: Color,
+      color: Color
     ): void;
   }
   interface Console {
@@ -6665,7 +6843,7 @@ Page({
     relativeToViewport(
       /** 用来扩展（或收缩）参照节点布局区域的边界 */
       margins?: RelativeToViewportMargins,
-    ): void;
+    ): IntersectionObserver;
   }
   interface LivePlayerContext {
     /** [LivePlayerContext.exitFullScreen(Object object)](LivePlayerContext.exitFullScreen.md)
@@ -13012,36 +13190,41 @@ declare const wx: wx.Wx;
 declare function /** [clearInterval(number intervalID)](clearInterval.md)
  *
  * 取消由 setInterval 设置的定时器。 */
-clearInterval(
-  /** 要取消的定时器的 ID */
-  intervalID: number,
+  clearInterval(
+    /** 要取消的定时器的 ID */
+    intervalID: number,
 ): void;
 declare function /** [clearTimeout(number timeoutID)](clearTimeout.md)
  *
  * 取消由 setTimeout 设置的定时器。 */
-clearTimeout(
-  /** 要取消的定时器的 ID */
-  timeoutID: number,
+  clearTimeout(
+    /** 要取消的定时器的 ID */
+    timeoutID: number,
 ): void;
 declare function /** [number setInterval(function callback, number delay, any rest)](setInterval.md)
  *
  * 设定一个定时器。按照指定的周期（以毫秒计）来执行注册的回调函数 */
-setInterval(
-  /** 回调函数 */
-  callback: Function,
-  /** 执行回调函数之间的时间间隔，单位 ms。 */
-  delay?: number,
-  /** param1, param2, ..., paramN 等附加参数，它们会作为参数传递给回调函数。 */
-  rest?: any,
+  setInterval(
+    /** 回调函数 */
+    callback: Function,
+    /** 执行回调函数之间的时间间隔，单位 ms。 */
+    delay?: number,
+    /** param1, param2, ..., paramN 等附加参数，它们会作为参数传递给回调函数。 */
+    ...rest: any[],
 ): number;
 declare function /** [number setTimeout(function callback, number delay, any rest)](setTimeout.md)
  *
  * 设定一个定时器。在定时到期以后执行注册的回调函数 */
-setTimeout(
-  /** 回调函数 */
-  callback: Function,
-  /** 延迟的时间，函数的调用会在该延迟之后发生，单位 ms。 */
-  delay?: number,
-  /** param1, param2, ..., paramN 等附加参数，它们会作为参数传递给回调函数。 */
-  rest?: any,
+  setTimeout(
+    /** 回调函数 */
+    callback: Function,
+    /** 延迟的时间，函数的调用会在该延迟之后发生，单位 ms。 */
+    delay?: number,
+    /** param1, param2, ..., paramN 等附加参数，它们会作为参数传递给回调函数。 */
+    ...rest: any[],
 ): number;
+
+/**
+ * 导入插件
+ */
+declare function requirePlugin<T=any>(packageName:string):T;
