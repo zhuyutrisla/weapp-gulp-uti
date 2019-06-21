@@ -1,9 +1,11 @@
+const apiUrl = 'https://xxx.com/'
+
 //  request
 let request = {
-  get(url, data){
+  get(url, data, baseUrl = apiUrl){
     return new Promise((resolve, reject) => {
       wx.request({
-        url,
+        url: baseUrl + url,
         data,
         header: {
           'content-type': 'application/json' // 默认值
@@ -31,10 +33,10 @@ let request = {
       })
     })
   },
-  post(url, data){
+  post(url, data, baseUrl = apiUrl){
     return new Promise((resolve, reject) => {
       wx.request({
-        url,
+        url: baseUrl + url,
         data,
         method: "POST",
         header: {

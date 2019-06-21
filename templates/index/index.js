@@ -1,5 +1,5 @@
 // index.js
-const { api } = require('../../util/api')
+const { userApi } = require('../../api/user')
 
 Page({
     data: {
