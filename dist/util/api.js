@@ -1,12 +1,8 @@
-//  api
-let { request } = require('./request')
-const baseUrl = 'https://xxx.com'
-
-let api = {
-  getTestAPI: (params)=> request.get(`${baseUrl}/get`, params),
-  postTestAPI:(params)=> request.post(`${baseUrl}/post`, params),
-}
-
-module.exports = {
-  api
-}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var request_1 = require("./request");
+var baseUrl = 'https://xxx.com';
+exports.api = {
+    getTestAPI: function (params) { return request_1.request.get(baseUrl + "/get", params); },
+    postTestAPI: function (params) { return request_1.request.post(baseUrl + "/post", params); },
+};

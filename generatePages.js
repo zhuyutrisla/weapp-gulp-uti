@@ -13,8 +13,8 @@ if (!cptName.length) {
 }
 let path = cptName[0].split('/');
 let name = path[path.length - 1];
-let writes = [`index.js`, `index.wxml`, `index.less`, `index.json`];
-let reads = [`${basepath}/index.js`, `${basepath}/index.wxml`, `${basepath}/index.less`, `${basepath}/index.json`];
+let writes = [`index.ts`, `index.wxml`, `index.less`, `index.json`];
+let reads = [`${basepath}/index.ts`, `${basepath}/index.wxml`, `${basepath}/index.less`, `${basepath}/index.json`];
 let file = [];
 //检测是否存在文件夹
 let exists = function () {

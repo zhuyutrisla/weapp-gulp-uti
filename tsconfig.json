@@ -9,8 +9,8 @@
     "noImplicitThis": true,
     "noImplicitReturns": true,
     "alwaysStrict": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
+    "inlineSourceMap": false,
+    "inlineSources": false,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -18,16 +18,15 @@
     "removeComments": true,
     "pretty": true,
     "strictPropertyInitialization": true,
-    "typeRoots": [
-      "./typings"
-    ]
+    "typeRoots": ["./typings"],
+    "lib": ["es5", "es2015", "dom", "scripthost"]
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "typings"
   ],
   "exclude": [
     "node_modules",
-    "miniprogram_dist",
     "**/*.spec.ts"
   ]
 }
