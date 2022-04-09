@@ -28,7 +28,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.8",
     "less": "^2.7.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "gulp-postcss": "^8.0.0",
     "postcss-px2rpx": "0.0.4"
   }
